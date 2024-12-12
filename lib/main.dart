@@ -78,24 +78,27 @@ class _AudioRecorderState extends State<AudioRecorder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sensor de Áudio em decibéis'),
+        title: const Text('Sensor de Áudio'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              _isRecording ? 'Recording...' : 'Press to Start Recording',
+              _isRecording
+                  ? 'Detectando...'
+                  : 'Pressione para começar a detectar',
               style: const TextStyle(fontSize: 20),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _isRecording ? _stopRecording : _startRecording,
-              child: Text(_isRecording ? 'Stop Recording' : 'Start Recording'),
+              child: Text(
+                  _isRecording ? 'Parar de Detectar' : 'Começar a Detectar'),
             ),
             const SizedBox(height: 20),
             Text(
-              'Current Volume: ${_volume.toStringAsFixed(2)} dB',
+              'Volume Atual: ${_volume.toStringAsFixed(2)} dB',
               style: const TextStyle(fontSize: 18),
             ),
           ],
@@ -104,5 +107,3 @@ class _AudioRecorderState extends State<AudioRecorder> {
     );
   }
 }
-
-
